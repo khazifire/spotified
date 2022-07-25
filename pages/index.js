@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {useState} from 'react';
 import TopArtists from '../components/TopArtists';
 import TopTracks from '../components/TopTracks';
-import {usePlaylist, useTopTracks, useTopArtists, useTrackAudioFeature, useUser} from '../lib/fetcher'
+import {useAllTopTracks,usePlaylist, useTopTracks, useTopArtists, useTrackAudioFeature, useUser} from '../lib/fetcher'
 
 export default function Home() {
   const {data: session} = useSession();
@@ -12,7 +12,7 @@ export default function Home() {
   // const {playlists,isLoading,isError} = usePlaylist();
   const {tracks,isLoadingTracks,isErrorTracks} = useTopTracks();
   const {artists,isLoadingArtists,isErrorArtists} = useTopArtists();
-  console.log(tracks)
+
   return (
       <>
         <section className='flex flex-col md:flex-row gap-8 items-center'>
@@ -34,7 +34,7 @@ export default function Home() {
           <div className='text-center lg:text-left'>
               <h1 className='text-5xl'>{session?.token?.name}</h1>
               <a href={`https://open.spotify.com/user/${session?.token?.sub}`} target={"_blank"} className="text-gray inline-flex gap-2 group">Spotify Profile
-              <i class="ri-share-box-line text-gray group-hover:text-green2"></i>
+              <i className="ri-share-box-line text-gray group-hover:text-green2"></i>
               </a>
           </div>
   
