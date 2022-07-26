@@ -1,6 +1,7 @@
 import {useSession} from 'next-auth/react';
 import {useEffect, useState} from 'react';
-import TopArtists from '../components/TopArtists';
+
+import BarChart from '../components/BarChart';
 import {useTopArtists,useTopArtistssMid,useTopArtistsLong } from '../lib/fetcher'
 
 export default function TopArtistsPage() {
@@ -10,6 +11,7 @@ export default function TopArtistsPage() {
   const {artistsLong,isLoading3,isError3} = useTopArtistsLong();
   const [ArtistList, setArtistList] = useState()
   const [tabs, setTabs] = useState("short")
+
 
  useEffect(() => {
     if(tabs=="long"){
@@ -21,15 +23,21 @@ export default function TopArtistsPage() {
     }else{
       setArtistList(artists);
     }
+   
  },);
 
-    const genres = [artists?.map((artist) => artist.genres).flat()].flat()
 
-    const countObject = genres.reduce((genre,name) => 
-       (genre[name] ? ++genre[name]:(genre[name] = 1),genre),{});
+   const genres = [ArtistList?.map((artist) => artist.genres).flat()].flat()
+   //tally the genres
+   const tally = genres.sort().reduce((genre,name) => (genre[name] ? ++genre[name]:(genre[name] = 1),genre),{})
 
-    console.table(countObject)
- 
+   let data = []
+   for (let x in tally){
+     data.push({"genre": x, "count":tally[x]})
+   }
+   data=[...data.sort((curr, next) => next.count - curr.count)]
+
+
 
   return (
       <>
@@ -53,7 +61,9 @@ export default function TopArtistsPage() {
         <hr className='my-8'></hr>
         <session className="flex flex-col  lg:flex-row lg:gap-16">
           {/* <TopArtists artists={ArtistList} type="grid" /> */}
-
+          <div id="chart">
+              <BarChart data={data} />
+          </div>
           
         </session>
 

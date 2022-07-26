@@ -17,14 +17,14 @@ const SideBar = () => {
           'icon':'ri-disc-line'
         },
         {
-          'name':'Top Genre',
-          'path':'#',
-          'icon':'ri-music-line'
-        },
-        {
           'name':'Top Artists',
           'path':'/topArtists',
           'icon':'ri-mic-2-line'
+        },
+        {
+          'name':'Top Genre',
+          'path':'/topGenres',
+          'icon':'ri-music-line'
         },
         {
           'name':'Recent',
