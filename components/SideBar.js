@@ -23,7 +23,7 @@ const SideBar = () => {
         },
         {
           'name':'Top Artists',
-          'path':'#',
+          'path':'/topArtists',
           'icon':'ri-mic-2-line'
         },
         {

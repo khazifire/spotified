@@ -1,29 +1,27 @@
-import {useSession, signIn, signOut} from 'next-auth/react';
-
+import {useSession} from 'next-auth/react';
 import {useEffect, useState} from 'react';
 import TopArtists from '../components/TopArtists';
-import TopTracks from '../components/TopTracks';
-import {useTopTracksMid,useTopTracksLong,usePlaylist, useTopTracks, useTopArtists, useTrackAudioFeature, useUser} from '../lib/fetcher'
+import {useTopArtists,useTopArtistssMid,useTopArtistsLong } from '../lib/fetcher'
 
-export default function TopTracksPage() {
+export default function TopArtistsPage() {
   const {data: session} = useSession();
-  const {tracks,isLoadingTracks,isErrorTracks} = useTopTracks();
-  const {trackMid,isLoading2,isError2} = useTopTracksMid();
-  const {tracksLong,isLoading3,isError3} = useTopTracksLong();
-  const [trackList, setTrackList] = useState()
+  const {artists,isLoadingTracks,isErrorTracks} = useTopArtists();
+  const {artistsMid,isLoading2,isError2} = useTopArtistssMid();
+  const {artistsLong,isLoading3,isError3} = useTopArtistsLong();
+  const [ArtistList, setArtistList] = useState()
   const [tabs, setTabs] = useState("short")
 
  useEffect(() => {
     if(tabs=="long"){
-      setTrackList(tracksLong);
+      setArtistList(artistsLong);
     }else if (tabs=="mid"){
-      setTrackList(trackMid);
+      setArtistList(artistsMid);
     }else if (tabs=="short"){
-      setTrackList(tracks);
+      setArtistList(artists);
     }else{
-      setTrackList(tracks);
+      setArtistList(artists);
     }
- });
+ },);
 
 
   return (
@@ -33,7 +31,7 @@ export default function TopTracksPage() {
         
 
           <div className='text-center lg:text-left'>
-              <h1 className='text-5xl'>Top Tracks</h1>
+              <h1 className='text-5xl'>Top Artists</h1>
               <p className="text-gray inline-flex gap-2 group">Based on Spotify Activity
               <i className="ri-star-smile-line text-green2"></i>
               </p>
@@ -47,9 +45,7 @@ export default function TopTracksPage() {
         </section>
         <hr className='my-8'></hr>
         <session className="flex flex-col  lg:flex-row lg:gap-16">
-          <TopTracks tracks={trackList} type="grid" />
-          <hr className='my-8 lg:hidden'></hr>
-          {/* <TopTracks tracks={tracks} /> */}
+          <TopArtists artists={ArtistList} type="grid" />
         </session>
 
 
