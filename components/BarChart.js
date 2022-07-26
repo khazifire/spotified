@@ -4,7 +4,7 @@ const BarChart = ({data}) => {
     const sizes =[64,56,52,44,36]
   
     return ( 
-        <div className='flex flex-col items-start lg:flex-row gap-8 lg:items-end'>
+        <div className='flex flex-col items-start lg:flex-row gap-8 '>
             {data?.slice(0,5).map((item,index) => (
             <div>
 
