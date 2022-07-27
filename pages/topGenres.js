@@ -1,17 +1,24 @@
 import {useSession} from 'next-auth/react';
 import {useEffect, useState} from 'react';
-
+import { useRouter, } from 'next/router';
 import BarChart from '../components/BarChart';
+import Loading from '../components/Loading';
 import {useTopArtists,useTopArtistssMid,useTopArtistsLong } from '../lib/fetcher'
 
 export default function TopArtistsPage() {
   const {data: session} = useSession();
+  const router = useRouter();
   const {artists,isLoadingTracks,isErrorTracks} = useTopArtists();
   const {artistsMid,isLoading2,isError2} = useTopArtistssMid();
   const {artistsLong,isLoading3,isError3} = useTopArtistsLong();
   const [ArtistList, setArtistList] = useState()
   const [tabs, setTabs] = useState("short")
 
+  useEffect(() => {
+    if (!session) {
+      router.push("/signin")
+    }
+  }, []);
 
  useEffect(() => {
     if(tabs=="long"){
@@ -41,10 +48,8 @@ export default function TopArtistsPage() {
 
   return (
       <>
+      {/* <Loading /> */}
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
-          
-        
-
           <div className='text-center lg:text-left'>
               <h1 className='text-5xl'>Top Genres</h1>
               <p className="text-gray inline-flex gap-2 group">Based on Spotify Activity
@@ -60,11 +65,9 @@ export default function TopArtistsPage() {
         </section>
         <hr className='my-8'></hr>
         <session className="flex flex-col  lg:flex-row lg:gap-16">
-          {/* <TopArtists artists={ArtistList} type="grid" /> */}
           <div id="chart">
               <BarChart data={data} />
           </div>
-          
         </session>
 
 

@@ -1,6 +1,16 @@
 import SideBar from "./SideBar";
-
+import {useSession, signIn, signOut} from 'next-auth/react';
 const Layout = ({children}) => {
+    const {data: session} = useSession();
+
+    
+    if (!session) {
+        return (
+            <section>
+            {children}
+            </section>
+        )
+    }
     return ( 
         <section className='flex flex-row gap-16'>
             <SideBar />

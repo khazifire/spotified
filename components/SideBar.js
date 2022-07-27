@@ -27,14 +27,16 @@ const SideBar = () => {
           'icon':'ri-music-line'
         },
         {
-          'name':'Recent',
+          'name':'Recent (soon)',
           'path':'#',
-          'icon':'ri-history-line'
+          'icon':'ri-history-line text-gray',
+          'soon': true
         },
         {
-          'name':'Playlists',
+          'name':'Playlists (soon)',
           'path':'#',
-          'icon':'ri-play-list-line'
+          'icon':'ri-play-list-line text-gray',
+          'soon': true
         },
        
       ]
@@ -46,11 +48,15 @@ const SideBar = () => {
             </div>
           <div className="flex flex-col justify-between flex-1 mt-6">
               <nav>
-                {navs.map(({name,path,icon}) =>(
+                {navs.map(({name,path,icon,soon}) =>(
                     <Link href={path} key={name}>
                         <a className={(router.pathname==path)?"nav-link nav-active":"nav-link"} >
                           <i className={icon}></i>
+                          {(soon)? 
+                          <span className="hidden lg:block lg:mx-4 font-medium text-gray">{name}</span>
+                          :
                           <span className="hidden lg:block lg:mx-4 font-medium">{name}</span>
+                          }
                         </a>
                   </Link>
                 ))}

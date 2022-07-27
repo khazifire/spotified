@@ -1,17 +1,27 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
-
+import { useRouter, } from 'next/router';
 import {useEffect, useState} from 'react';
 import TopArtists from '../components/TopArtists';
 import TopTracks from '../components/TopTracks';
 import {useTopTracksMid,useTopTracksLong,usePlaylist, useTopTracks, useTopArtists, useTrackAudioFeature, useUser} from '../lib/fetcher'
+import SignIn from './signin';
 
 export default function TopTracksPage() {
   const {data: session} = useSession();
+  const router = useRouter();
   const {tracks,isLoadingTracks,isErrorTracks} = useTopTracks();
   const {trackMid,isLoading2,isError2} = useTopTracksMid();
   const {tracksLong,isLoading3,isError3} = useTopTracksLong();
   const [trackList, setTrackList] = useState()
   const [tabs, setTabs] = useState("short")
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/signin")
+    }
+  }, []);
+
+ 
 
  useEffect(() => {
     if(tabs=="long"){

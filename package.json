@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@uiball/loaders": "^1.2.6",
     "chart.js": "^3.8.2",
     "next": "12.2.2",
     "next-auth": "^4.10.0",
