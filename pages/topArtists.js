@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import { useRouter, } from 'next/router';
 import TopArtists from '../components/TopArtists';
 import {useTopArtists,useTopArtistssMid,useTopArtistsLong } from '../lib/fetcher'
+import Meta from '../components/meta';
 
 export default function TopArtistsPage() {
  
@@ -28,6 +29,7 @@ export default function TopArtistsPage() {
 
   return (
       <>
+      <Meta title='Top Artists' />
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
           
         

@@ -1,6 +1,7 @@
 import {useSession,getSession} from 'next-auth/react';
 import { useRouter, } from 'next/router';
 import {useEffect, useState} from 'react';
+import Meta from '../components/meta';
 import TopArtists from '../components/TopArtists';
 import TopTracks from '../components/TopTracks';
 import {useTopTracksMid,useTopTracksLong,usePlaylist, useTopTracks, useTopArtists, useTrackAudioFeature, useUser} from '../lib/fetcher'
@@ -29,6 +30,7 @@ export default function TopTracksPage() {
 
   return (
       <>
+      <Meta title='Top Tracks' />
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
           
         

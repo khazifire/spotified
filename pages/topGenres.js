@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 
 import BarChart from '../components/BarChart';
 import Loading from '../components/Loading';
+import Meta from '../components/meta';
 import {useTopArtists,useTopArtistssMid,useTopArtistsLong } from '../lib/fetcher'
 
 export default function TopArtistsPage() {
@@ -43,7 +44,7 @@ export default function TopArtistsPage() {
 
   return (
       <>
-      {/* <Loading /> */}
+       <Meta title='Top Genres' />
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
           <div className='text-center lg:text-left'>
               <h1 className='text-5xl'>Top Genres</h1>

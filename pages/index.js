@@ -1,5 +1,6 @@
 import {useSession, getSession} from 'next-auth/react';
 import Image from 'next/image';
+import Meta from '../components/meta';
 import TopArtists from '../components/TopArtists';
 import TopTracks from '../components/TopTracks';
 import {useTopTracks, useTopArtists} from '../lib/fetcher'
@@ -13,6 +14,7 @@ export default function Home() {
 
   return (
       <>
+        <Meta />
         <section className='flex flex-col md:flex-row gap-8 items-center'>
           
           <div className='border-gray border-opacity-30 border-2 rounded-full pt-2 px-2' >
