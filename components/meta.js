@@ -16,14 +16,14 @@ const Meta = () => {
                 <meta property="og:url" content="https://spotified.vercel.app/"/>
                 <meta property="og:title" content="Spotified - Spotify Analyzed"/>
                 <meta property="og:description" content="a web-based application that uses Nextjs and the Spotify API to visualize users top tracks, playlists and other analysis."/>
-                <meta property="og:image" content="/cover.png"/>
+                <meta property="og:image" content="https://spotified.vercel.app/cover.png"/>
 
             
                 <meta property="twitter:card" content="summary_large_image"/>
                 <meta property="twitter:url" content="https://spotified.vercel.app/"/>
                 <meta property="twitter:title" content="Spotified - Spotify Analyzed"/>
                 <meta property="twitter:description" content="a web-based application that uses Nextjs and the Spotify API to visualize users top tracks, playlists and other analysis."/>
-                <meta property="twitter:image" content="/cover.png"/>
+                <meta property="twitter:image" content="https://spotified.vercel.app/cover.png"/>
 
             </Head>
 
