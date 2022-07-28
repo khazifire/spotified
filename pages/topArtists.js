@@ -1,23 +1,17 @@
-import {useSession} from 'next-auth/react';
+import {useSession,getSession} from 'next-auth/react';
 import {useEffect, useState} from 'react';
 import { useRouter, } from 'next/router';
 import TopArtists from '../components/TopArtists';
 import {useTopArtists,useTopArtistssMid,useTopArtistsLong } from '../lib/fetcher'
 
 export default function TopArtistsPage() {
-  const {data: session} = useSession();
-  const router = useRouter();
+ 
   const {artists,isLoadingTracks,isErrorTracks} = useTopArtists();
   const {artistsMid,isLoading2,isError2} = useTopArtistssMid();
   const {artistsLong,isLoading3,isError3} = useTopArtistsLong();
   const [ArtistList, setArtistList] = useState()
   const [tabs, setTabs] = useState("short")
 
-  useEffect(() => {
-    if (!session) {
-      router.push("/signin")
-    }
-  }, []);
 
   useEffect(() => {
       if(tabs=="long"){
@@ -60,4 +54,19 @@ export default function TopArtistsPage() {
       </>
  
   );
+}
+
+export async function getServerSideProps(context){
+  const session = await getSession(context);
+
+  if(!session)
+    return{
+      redirect:{
+        destination: 'signin',
+        permanent: false,
+      }
+    };
+  return {
+    props: {session}
+  }
 }

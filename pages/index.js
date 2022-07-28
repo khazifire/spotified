@@ -1,26 +1,14 @@
-import {useSession, signIn, signOut} from 'next-auth/react';
+import {useSession, getSession} from 'next-auth/react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter, } from 'next/router';
-import {useState,useEffect} from 'react';
 import TopArtists from '../components/TopArtists';
 import TopTracks from '../components/TopTracks';
-import {useAllTopTracks,usePlaylist, useTopTracks, useTopArtists, useTrackAudioFeature, useUser} from '../lib/fetcher'
-import SignIn from './signin';
+import {useTopTracks, useTopArtists} from '../lib/fetcher'
+
 
 export default function Home() {
   const {data: session} = useSession();
-  const router = useRouter();
- // const {user,isLoadingUser,isErrorUser} = useUser();
-  // const {playlists,isLoading,isError} = usePlaylist();
   const {tracks,isLoadingTracks,isErrorTracks} = useTopTracks();
   const {artists,isLoadingArtists,isErrorArtists} = useTopArtists();
-
-  useEffect(() => {
-    if (!session) {
-      router.push("/signin")
-    }
-  }, []);
 
 
   return (
@@ -60,4 +48,19 @@ export default function Home() {
       </>
  
   );
+}
+
+export async function getServerSideProps(context){
+  const session = await getSession(context);
+
+  if(!session)
+    return{
+      redirect:{
+        destination: 'signin',
+        permanent: false,
+      }
+    };
+  return {
+    props: {session}
+  }
 }
