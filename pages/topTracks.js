@@ -1,11 +1,8 @@
-import {useSession,getSession} from 'next-auth/react';
-import { useRouter, } from 'next/router';
+import {getSession} from 'next-auth/react';
 import {useEffect, useState} from 'react';
-import Meta from '../components/meta';
-import TopArtists from '../components/TopArtists';
 import TopTracks from '../components/TopTracks';
-import {useTopTracksMid,useTopTracksLong,usePlaylist, useTopTracks, useTopArtists, useTrackAudioFeature, useUser} from '../lib/fetcher'
-import SignIn from './signin';
+import {useTopTracksMid, useTopTracksLong, useTopTracks} from '../lib/fetcher'
+import Loading from '../components/Loading';
 
 export default function TopTracksPage() {
 
@@ -26,11 +23,12 @@ export default function TopTracksPage() {
       setTrackList(tracks);
     }
  });
-
+ if(isLoadingTracks){
+  return <Loading />
+} 
 
   return (
       <>
-      {/* <Meta title='Top Tracks' /> */}
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
           <div className='text-center lg:text-left'>
               <h1 className='text-5xl'>Top Tracks</h1>

@@ -68,8 +68,9 @@ const SideBar = () => {
               </nav>
             
               <div className="flex items-center px-1 lg:px-4 -mx-2">
-                  <img className="object-cover lg:mx-2 rounded-full h-9 w-9" src={session?.token?.picture} alt="avatar"/>
-                  <h4 className="hidden lg:block mx-2 font-medium">{session?.token?.name}</h4>
+                  <i class="ri-github-fill text-2xl"></i>
+                  <h4 className="hidden lg:block mx-2 font-medium text-sm group">Created by  
+                  <a href="https://khazifire.com" target={"_blank"} rel="noopener noreferrer" className='text-sm pointer group-hover:text-green2 inline-flex items-center ml-1'>Khazifire <i className="ml-1 text-sm ri-share-box-line text-gray group-hover:text-green2"></i></a></h4>
               </div>
           </div>
         </div>

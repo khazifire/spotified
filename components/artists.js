@@ -7,7 +7,7 @@ const Artists = ({artists, type}) => {
             {artists?.map((artist,index) => (
                 <div className='inline-flex items-center gap-2'>
                   <div className="group flex flex-col gap-6 items-center hover:shadow-2xl bg-gray bg-opacity-5 rounded-lg p-1">
-                    <a href={artist?.external_urls?.spotify} target="_blank" className='inline-flex flex-col '> 
+                    <a href={artist?.external_urls?.spotify} target="_blank" rel="noopener noreferrer" className='inline-flex flex-col '> 
                         <div className='border-gray group-hover:border-green group-hover:border-opacity-40 border-opacity-30 border-2 rounded-full pt-2 px-2' >
                             {artist?.images[1] && (
                             <Image 

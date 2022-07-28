@@ -1,7 +1,7 @@
 import { Waveform } from '@uiball/loaders'
 const Loading = () => {
     return ( 
-        <div className='ml-40 mt-56 md:ml-96'>
+        <div className=''>
             <Waveform 
                 size={80}
                 lineWeight={5}

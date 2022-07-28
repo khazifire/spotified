@@ -1,28 +1,29 @@
 import Head from "next/head"
-import coverImg from '../public/cover.png'
-import favicon from '../public/favicon.png'
 
-
-const Meta = ({title="Profile Analytics"}) => {
+const Meta = () => {
     return ( 
             <Head>
-                <title>Spotified - Profile Analytics</title>
-                <link rel="icon" type="image/x-icon" href={favicon}></link>
-                <meta name="title" content={`Spotified - ${title}`}/>
+                <title>Spotified - Spotify Analyzed</title>
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" charSet="UTF-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name='robots' content='index' />
+                <link rel="icon" href="/favicon.png" />
+   
+                <meta name="title" content="Spotified - Spotify Analyzed"/>
                 <meta name="description" content="a web-based application that uses Nextjs and the Spotify API to visualize users top tracks, playlists and other analysis."/>
 
                 <meta property="og:type" content="website"/>
                 <meta property="og:url" content="https://spotified.vercel.app/"/>
-                <meta property="og:title" content={`Spotified - ${title}`}/>
+                <meta property="og:title" content="Spotified - Spotify Analyzed"/>
                 <meta property="og:description" content="a web-based application that uses Nextjs and the Spotify API to visualize users top tracks, playlists and other analysis."/>
-                <meta property="og:image" content={coverImg}/>
+                <meta property="og:image" content="/cover.png"/>
 
             
                 <meta property="twitter:card" content="summary_large_image"/>
                 <meta property="twitter:url" content="https://spotified.vercel.app/"/>
-                <meta property="twitter:title" content={`Spotified - ${title}`}/>
+                <meta property="twitter:title" content="Spotified - Spotify Analyzed"/>
                 <meta property="twitter:description" content="a web-based application that uses Nextjs and the Spotify API to visualize users top tracks, playlists and other analysis."/>
-                <meta property="twitter:image" content={coverImg}/>
+                <meta property="twitter:image" content="/cover.png"/>
 
             </Head>
 
