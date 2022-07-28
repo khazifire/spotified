@@ -1,10 +1,13 @@
 import Head from "next/head"
 import coverImg from '../public/cover.png'
+import favicon from '../public/favicon.png'
+
 
 const Meta = ({title="Profile Analytics"}) => {
     return ( 
             <Head>
                 <title>Spotified - Profile Analytics</title>
+                <link rel="icon" type="image/x-icon" href={favicon}></link>
                 <meta name="title" content={`Spotified - ${title}`}/>
                 <meta name="description" content="a web-based application that uses Nextjs and the Spotify API to visualize users top tracks, playlists and other analysis."/>
 
