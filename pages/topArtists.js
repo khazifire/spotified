@@ -29,7 +29,7 @@ export default function TopArtistsPage() {
 
   return (
       <>
-      <Meta title='Top Artists' />
+      {/* <Meta title='Top Artists' /> */}
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
           
         

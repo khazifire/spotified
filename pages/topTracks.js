@@ -30,11 +30,8 @@ export default function TopTracksPage() {
 
   return (
       <>
-      <Meta title='Top Tracks' />
+      {/* <Meta title='Top Tracks' /> */}
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
-          
-        
-
           <div className='text-center lg:text-left'>
               <h1 className='text-5xl'>Top Tracks</h1>
               <p className="text-gray inline-flex gap-2 group">Based on Spotify Activity

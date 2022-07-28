@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
       <>
-        <Meta />
+        {/* <Meta /> */}
         <section className='flex flex-col md:flex-row gap-8 items-center'>
           
           <div className='border-gray border-opacity-30 border-2 rounded-full pt-2 px-2' >

@@ -44,7 +44,7 @@ export default function TopArtistsPage() {
 
   return (
       <>
-       <Meta title='Top Genres' />
+       {/* <Meta title='Top Genres' /> */}
         <section className='flex flex-col xl:flex-row gap-8 items-center'>
           <div className='text-center lg:text-left'>
               <h1 className='text-5xl'>Top Genres</h1>
