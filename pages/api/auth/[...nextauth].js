@@ -10,9 +10,10 @@ export default NextAuth({
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     }),
   ],
-  // pages:{
-  //   signIn:"/signin"
-  // },
+  pages:{
+    signIn:"/signin"
+  },
+  secret: process.env.SECRET,
   callbacks: {
     async jwt({token, account}) {
       if (account) {
