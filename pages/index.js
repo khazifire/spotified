@@ -42,7 +42,7 @@ export default function Home() {
           </section>
           <hr className='my-8'></hr>
           
-          {(artists && tracks)? 
+          {(artists && tracks && !isErrorTracks && !isErrorArtists)? 
               <session className="flex flex-col  lg:flex-row lg:gap-16">
                 <TopArtists artists={artists} />
                 <hr className='my-8 lg:hidden'></hr>
