@@ -43,7 +43,8 @@ export default function TopTracksPage() {
 
           </div>
         </section>
-
+        
+        <hr className='my-8'></hr>
         <session className="flex flex-col  lg:flex-row lg:gap-16">
         {(trackList && trackList.length != 0)? 
             <TopTracks tracks={trackList} type="grid" />
