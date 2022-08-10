@@ -43,13 +43,13 @@ export default function TopTracksPage() {
 
           </div>
         </section>
-        <hr className='my-8'></hr>
+
+      {(trackList.length>0)? 
         <session className="flex flex-col  lg:flex-row lg:gap-16">
           <TopTracks tracks={trackList} type="grid" />
-          <hr className='my-8 lg:hidden'></hr>
-          {/* <TopTracks tracks={tracks} /> */}
         </session>
-
+        : <p className='text-gray '> Your spotify activity does not have sufficient data !</p>
+        }
 
       </>
  
