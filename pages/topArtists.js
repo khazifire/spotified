@@ -46,11 +46,11 @@ export default function TopArtistsPage() {
               </div>
             </section>
             <hr className='my-8'></hr>
-            {(ArtistList && ArtistList.length != 0) ? 
               <session className="flex flex-col  lg:flex-row lg:gap-16">
+            {(ArtistList && ArtistList.length != 0) ? 
                 <TopArtists artists={ArtistList} type="grid" />
+                :<p className='text-gray'> Your spotify activity does not have sufficient data !</p>}
               </session>
-            :<p className='text-gray '> Your spotify activity does not have sufficient data !</p>}
 
       </>
   );

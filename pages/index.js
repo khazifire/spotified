@@ -42,13 +42,13 @@ export default function Home() {
           </section>
           <hr className='my-8'></hr>
           
-          {(artists && tracks && !isErrorTracks && !isErrorArtists)? 
+          {(artists && artists.length != 0 && tracks && tracks.length != 0 )? 
               <session className="flex flex-col  lg:flex-row lg:gap-16">
                 <TopArtists artists={artists} />
                 <hr className='my-8 lg:hidden'></hr>
                 <TopTracks tracks={tracks} />
               </session>
-            :<p className='text-gray '> Your spotify activity does not have sufficient data !</p>}
+            :<p className='text-gray mt-4'> Your spotify activity does not have sufficient data !</p>}
       </>
  
   );
