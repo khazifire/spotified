@@ -46,7 +46,7 @@ export default function TopArtistsPage() {
               </div>
             </section>
             <hr className='my-8'></hr>
-            {ArtistList.length>0 ? 
+            {(ArtistList.length != 0) ? 
               <session className="flex flex-col  lg:flex-row lg:gap-16">
                 <TopArtists artists={ArtistList} type="grid" />
               </session>

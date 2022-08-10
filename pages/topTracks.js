@@ -44,7 +44,7 @@ export default function TopTracksPage() {
           </div>
         </section>
 
-      {(trackList.length>0)? 
+      {(trackList.length != 0)? 
         <session className="flex flex-col  lg:flex-row lg:gap-16">
           <TopTracks tracks={trackList} type="grid" />
         </session>
