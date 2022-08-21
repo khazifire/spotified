@@ -17,11 +17,3 @@ SPOTIFY_CLIENT_SECRET = "your spotify client secret"
 ```bash
 npm run dev
 ```
-6. 
-```bash
-Create some Magic!!!
-```
-### Issues
-- to access login page ==> /sign-in  and once you are logged in, change the url to ==> /  
-The issue will be fixed soon but if you would like to contribute and fix it, then feel free to create a PR with your solution!!!
-
