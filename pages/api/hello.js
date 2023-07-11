@@ -1,3 +1,4 @@
+import {NextResponse} from "next/server";
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 // export default function handler(req, res) {
@@ -5,9 +6,19 @@
 // }
 
 export const GET = async (req,res)=>{
-  res.status(200).json({msg: "this is a get method"})
-}
+  try{
+    return NextResponse.json({msg: "this is a get method"}, {status:200})
+  }catch(err){
+    return NextResponse.json({msg: err}, {status:500})
+  }
+  
+};
 
 export const POST = async (req,res)=>{
-  res.status(200).json({msg: "this is a post method", reg:reg})
-}
+  const {title, name} = await reg.json()
+  try{
+    return NextResponse.json({name: name, title: title}, {status:200})
+  }catch(err){
+    return NextResponse.json({msg: err}, {status:500})
+  }
+};
